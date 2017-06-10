@@ -1,0 +1,4 @@
+ru\itis\exam\model\Expression.class
+ru\itis\exam\config\MvcConfig.class
+ru\itis\exam\controllers\MainController.class
+ru\itis\exam\Main.class
