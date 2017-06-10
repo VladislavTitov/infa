@@ -7,15 +7,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by VladislavTitov on 08.06.2017.
- */
-public class NumberListReader {
+public class WordsReader {
 
     private String fileName;
     private BufferedReader fileReader;
+    private int k;
 
-    public NumberListReader(String fileName) {
+    public WordsReader(String fileName) {
         this.fileName = fileName;
         try {
             this.fileReader = new BufferedReader(new FileReader(fileName));
@@ -24,21 +22,25 @@ public class NumberListReader {
         }
     }
 
-    public List<Integer> readArray(){
-        List<Integer> numbers = new ArrayList<Integer>();
+    public List<String> readArray(){
+        List<String> words = new ArrayList<>();
         try {
-            String readedNumber = fileReader.readLine();
-            while (readedNumber != null){
-                Integer number = Integer.parseInt(readedNumber);
-                numbers.add(number);
-                readedNumber = fileReader.readLine();
+            k = Integer.parseInt(fileReader.readLine());
+            String readedWord = fileReader.readLine();
+            while (readedWord != null){
+                if (readedWord.length() >= k) {
+                    words.add(readedWord);
+                }
+                readedWord = fileReader.readLine();
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return numbers;
+        return words;
     }
 
-
+    public int getK() {
+        return k;
+    }
 }

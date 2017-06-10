@@ -1,20 +1,16 @@
 package ru.itis.exam;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
-/**
- * Created by VladislavTitov on 08.06.2017.
- */
-public class NumberListWriter {
+public class WordsWriter {
 
     private String fileName;
     private BufferedWriter fileWriter;
 
-    public NumberListWriter(String fileName) {
+    public WordsWriter(String fileName) {
         this.fileName = fileName;
         try {
             fileWriter = new BufferedWriter(new FileWriter(fileName));
@@ -23,10 +19,10 @@ public class NumberListWriter {
         }
     }
 
-    public void writeArray(List<Integer> array){
-        array.forEach(number -> {
+    public void writeArray(List<String> array){
+        array.forEach(word -> {
             try {
-                fileWriter.write(String.valueOf(number));
+                fileWriter.write(word);
                 fileWriter.newLine();
             } catch (IOException e) {
                 e.printStackTrace();

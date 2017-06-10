@@ -2,31 +2,17 @@ package ru.itis.exam;
 
 import java.util.List;
 
-/**
- * Created by VladislavTitov on 08.06.2017.
- */
 public class Application {
 
 
     public static void main(String[] args) {
-        NumberListReader reader = new NumberListReader("E:\\Programming\\abb\\TestChat\\task1\\src\\main\\resources\\in.txt");
-        List<Integer> numbers = reader.readArray();
-        numbers.sort((o1, o2) -> {
-            while (o1 != 0 & o2 != 0){
-                o1 /= 10;
-                o2 /= 10;
-            }
-            if (o1 == 0 & o2 != 0){
-                return -1;
-            }else if (o1 == 0 & o2 == 0){
-                return 0;
-            }else {
-                return 1;
-            }
-
+        WordsReader reader = new WordsReader("src/main/resources/in.txt");
+        List<String> words = reader.readArray();
+        words.sort((o1, o2) -> {
+            return o1.charAt(reader.getK() - 1) - o2.charAt(reader.getK() - 1);
         });
-        NumberListWriter writer = new NumberListWriter("E:\\Programming\\abb\\TestChat\\task1\\src\\main\\resources\\out.txt");
-        writer.writeArray(numbers);
+        WordsWriter writer = new WordsWriter("src/main/resources/out.txt");
+        writer.writeArray(words);
     }
 
 }
