@@ -12,7 +12,7 @@
     <title>Calc</title>
 </head>
 <body>
-<form:form method="post" modelAttribute="expression" action="execute">
+<%--<form:form method="post"  action="execute">
     <form:input path="first"/>
     <form:input path="second"/>
     <form:select path="operator">
@@ -22,7 +22,20 @@
         <option>/</option>
     </form:select>
     <input type="submit"/>
-</form:form>
+</form:form>--%>
+
+
+<form action="/execute" method="post">
+    <input type="number" name="first"/>
+    <input type="number" name="second"/>
+    <select name="operator">
+        <option>+</option>
+        <option>-</option>
+        <option>*</option>
+        <option>/</option>
+    </select>
+    <input type="submit"/>
+</form>
 
 </body>
 </html>
